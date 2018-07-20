@@ -4,9 +4,11 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
-  <div class="order-summary jumbotron">
-    <h4>Thank you for your order <%= @order.email %> !</h4>
-  </div>
+  <p>
+		Thank you for your order <%= @order.email %>
+		This is your order confirmation id: <%= @order.id %>.
+		Have a great day! :)
+  </p>
 
   <div class="panel panel-default items">
     <table class="table table-bordered">
@@ -24,9 +26,9 @@
         <tr>
           <td><%= image_tag i.product.image.tiny %></td>
           <td><%= i.product.description %></td>
-          <td><%= number_to_currency(i.item_price_cents/100) %></td>
+          <td><%= i.item_price_cents/100 %></td>
           <td><%= i.quantity %></td>
-          <td><%= number_to_currency(i.total_price_cents/100) %></td>
+          <td><%= i.total_price_cents/100 %></td>
         <% end %>
         </tr>
       </tbody>
@@ -36,7 +38,7 @@
             TOTAL:
           </th>
           <th>
-            <%= number_to_currency(@order.total_cents/100) %><br>
+            <%= @order.total_cents/100 %><br>
           </th>
         </tr>
         <tr>
@@ -47,7 +49,5 @@
       </tfoot>
     </table>
   </div>
-
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
