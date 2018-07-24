@@ -9,6 +9,15 @@
 <body>
 
   <%= render 'layouts/top_nav' %>
+  <% if flash[:error] %>
+    <div class="alert alert-danger" role="alert">
+      <% flash.now[:error].each do | msg | %>
+        <% msg.each do | m | %>
+          <%= m %>
+          <% end %>
+        <% end %>
+    </div>
+  <% end %>
 
   <main class="container">
     <%= yield %>
