@@ -58,6 +58,18 @@
               </ul>
             </div>
           <% end %>
+          
+          <% if flash[:error_review] %>
+            <div class="alert alert-danger">
+              <strong>The following errors prevented saving:</strong>
+              <ul>
+                <% flash[:error_review].each do |error| %>
+                  <li><%= error %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          
 
           <div class="col-sm-8">
             <dl class="dl-horizontal">

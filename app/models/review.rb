@@ -5,7 +5,7 @@ class Review < ActiveRecord::Base
 
 	validates :product, presence: true
 	validates :user, presence: true
-	validates :description, presence: { message: "You cannot add an empty review!" }
+	validates :description, presence: true
 	validates :rating, presence: true
 
 end

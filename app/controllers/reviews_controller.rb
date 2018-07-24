@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
 		if @review.save
 			redirect_to "/products/#{params[:product_id]}"
 		else
-			flash[:error] = @review.errors.messages.values
+			flash[:error_review] = @review.errors.full_messages
 			redirect_to request.referrer
 		end
 	end
